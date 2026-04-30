@@ -1,4 +1,4 @@
-package personal.calorietracker.Models;
+package personal.calorietracker.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,15 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Foods")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Food {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String nameSurname;
-    int weight, height;
+
+    @Column(unique = true)
+    String barcode;
+    String brand, name, servingSize;
+    Double calories, protein, carbohydrates, fats;
 }
